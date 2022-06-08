@@ -15,13 +15,13 @@ export class ShowComponent implements OnInit {
     console.log(this.postService.getPosts())
     this.postService.getPosts().subscribe((res) => {
       this.Posts = [{ id: "1", "componente": "prueba", "descripcion": "prueba", "precio": 12 }]
-      // this.Posts = res.map((e) => {
-      //   return {
-      //     id: e.payload.doc.id,
-      //     ...(e.payload.doc.data() as Post)
-      // sprip operator (...) simplifica la recogida de valores
-      //   }
-      // })
+      this.Posts = res.map((e) => {
+        return {
+          id: e.payload.doc.id,
+          ...(e.payload.doc.data() as Post)
+          // sprip operator (...) simplifica la recogida de valores
+        }
+      })
       console.log(this.Posts)
     })
   }
